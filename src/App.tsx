@@ -1,15 +1,17 @@
 import React from "react";
-import { PageOne } from "./components/pages/PageOne";
-import { PageTwo } from "./components/pages/PageTwo";
-import { PageThree } from "./components/pages/PageThree";
+import { Adidas } from "./components/pages/Adidas";
+import { Puma } from "./components/pages/Puma";
+import { Abibas } from "./components/pages/Abibas";
 import { Navigate, NavLink, Route, Routes } from "react-router-dom";
 import { Error404 } from "./components/pages/Error404";
 import { S } from "./components/pages/_styles";
+import { Model } from "./components/pages/Model";
 
-const PATH = {
-  ADIDAS: "/page1",
-  PUMA: "/page2",
-  ABIBAS: "/page3",
+export const PATH = {
+  ADIDAS: "/adidas",
+  PUMA: "/puma",
+  ABIBAS: "/abibas",
+  // MODEL: "/model",
   ERROR: "/error",
 } as const;
 
@@ -35,9 +37,10 @@ export function App() {
           <Routes>
             <Route path={"/"} element={<Navigate to={PATH.ADIDAS} />} />
 
-            <Route path={PATH.ADIDAS} element={<PageOne />} />
-            <Route path={PATH.PUMA} element={<PageTwo />} />
-            <Route path={PATH.ABIBAS} element={<PageThree />} />
+            <Route path={PATH.ADIDAS} element={<Adidas />} />
+            <Route path={PATH.PUMA} element={<Puma />} />
+            <Route path={PATH.ABIBAS} element={<Abibas />} />
+            <Route path={"/adidas/:id"} element={<Model />} />
 
             <Route path={"/*"} element={<Error404 />} />
             {/*<Route path={PATH.ERROR} element={<Error404 />} />*/}
