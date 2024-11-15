@@ -1,9 +1,24 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { ItemType } from "../State";
 
-export const Abibas = () => {
+type Props = {
+  state: ItemType[];
+};
+
+export const Nike = ({ state }: Props) => {
   return (
     <div>
-      <h2>ABIBAS</h2>
+      <h2>Nike</h2>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        {state.map((el, i) => {
+          return (
+            <Link key={i} to={`/nike/${el.id}`}>
+              <img src={el.picture} style={{ height: "200px", marginRight: "10px" }} alt={"picture not found"} />
+            </Link>
+          );
+        })}
+      </div>
       <p>
         page3 - be distracted by the readable content of a page when looking at its layout. The point of using Lorem
         Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content

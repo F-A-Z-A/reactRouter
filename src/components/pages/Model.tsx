@@ -1,21 +1,22 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { adidasArr } from "./Adidas";
+import { stateArray } from "../State";
 
-type Props = {};
-export const Model = (props: Props) => {
-  const params = useParams();
-  const paramsId = Number(params.id);
-  const model = adidasArr.find((el) => el.id === paramsId);
+export const Model = () => {
+  const { model, id } = useParams();
+  const currentModel = model ? stateArray[model].find((el) => el.id === Number(id)) : null;
+
   return (
     <div>
-      {model ? (
+      {currentModel ? (
         <div>
-          <h1>{model.model}</h1>
-          <img src={model.picture} alt="ricture not found" style={{ width: "400px" }} />
+          <h1>{currentModel.model}</h1>
+          <h4>{currentModel.collection}</h4>
+          <h3>{currentModel.price}</h3>
+          <img src={currentModel.picture} alt={currentModel.model} style={{ width: "400px" }} />
         </div>
       ) : (
-        <h1>Модель отсутствует</h1>
+        <h2>Модель отсутствует</h2>
       )}
     </div>
   );
