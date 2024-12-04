@@ -6,13 +6,15 @@ import { Navigate, NavLink, Route, Routes } from "react-router-dom";
 import { Error404 } from "./components/pages/Error404";
 import { S } from "./components/pages/_styles";
 import { Model } from "./components/pages/Model";
-import { stateArray } from "./components/State";
+import { sneakers, stateArray } from "./components/State";
+import { Prices } from "./components/pages/Prices";
 
 export const PATH = {
   ADIDAS: "/adidas",
   PUMA: "/puma",
   NIKE: "/nike",
   ERROR: "/error",
+  PRICES: "/prices",
 } as const;
 
 export function App() {
@@ -32,6 +34,9 @@ export function App() {
           <S.NavWrapper>
             <NavLink to={PATH.NIKE}> Nike </NavLink>
           </S.NavWrapper>
+          <S.NavWrapper>
+            <NavLink to={PATH.PRICES}> Prices </NavLink>
+          </S.NavWrapper>
         </S.Nav>
         <S.Content>
           <Routes>
@@ -40,6 +45,7 @@ export function App() {
             <Route path={PATH.ADIDAS} element={<Adidas state={stateArray.adidas} />} />
             <Route path={PATH.PUMA} element={<Puma state={stateArray.puma} />} />
             <Route path={PATH.NIKE} element={<Nike state={stateArray.nike} />} />
+            <Route path={PATH.PRICES} element={<Prices state={sneakers} />} />
             <Route path={"/:model/:id"} element={<Model />} />
 
             <Route path={"/*"} element={<Error404 />} />

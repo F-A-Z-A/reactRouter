@@ -19,6 +19,13 @@ export type stateArrayType = {
   [key: string]: ItemType[];
 };
 
+export type SneakersType = {
+  manufacturer: string;
+  name: string;
+  price: number;
+  onSale: boolean;
+};
+
 export const stateArray: stateArrayType = {
   adidas: [
     {
@@ -90,3 +97,36 @@ export const stateArray: stateArrayType = {
     },
   ],
 };
+
+export const sneakers: SneakersType[] = [
+  {
+    manufacturer: "Adidas",
+    name: "Adidas Yeezy Boost 350",
+    price: 300,
+    onSale: false,
+  },
+  {
+    manufacturer: "Adidas",
+    name: "Adidas Ultraboost 21",
+    price: 180,
+    onSale: true,
+  },
+  {
+    manufacturer: "Puma",
+    name: "Puma Suede Classic",
+    price: 65,
+    onSale: true,
+  },
+  {
+    manufacturer: "Puma",
+    name: "Puma RS-X",
+    price: 110,
+    onSale: false,
+  },
+  {
+    manufacturer: "Abibas",
+    name: "Abibas Alphabounce",
+    price: 60,
+    onSale: true,
+  },
+];
